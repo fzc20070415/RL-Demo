@@ -1,5 +1,9 @@
 import random
 import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
 
 class QL:
     def __init__(self, size, EPSILON, LAMBDA, ALPHA):
@@ -55,3 +59,35 @@ class QL:
 
     def print(self):
         print(self.q_table)
+
+class Net(nn.Module):
+    def __init__(self, input_size):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(input_size, 10)
+        self.fc2 = nn.Linear(10, 4)
+    
+    def forward(self, x):
+        x = self.fc1(x)
+        x = self.fc2(x)
+        return x
+
+class DQN:
+    def __init__(self, size, EPSILON, LAMBDA, ALPHA):
+        self.size = size
+        self.EPSILON = EPSILON
+        self.LAMBDA = LAMBDA
+        self.ALPHA = ALPHA
+        self.EvalNet = Net(size)
+        self.TargetNet = self.EvalNet.copy()
+        self.criterion = nn.MSELoss()
+        self.optimizer = optim
+
+    def init_nn(self):
+        # self.main_nn = torch.model()
+        pass
+
+    def learn(self):
+        pass
+
+    def store_transition(self, O, A, R, OO):
+        pass
