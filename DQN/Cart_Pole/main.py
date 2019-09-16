@@ -57,7 +57,7 @@ class ReplayMemory():
         self.push_count += 1
     
     def sample(self, batch_size):
-        print("\tDEBUG: ReplayMemory providing sample.")
+        # print("\tDEBUG: ReplayMemory providing sample.")
         return random.sample(self.memory, batch_size)
 
     def can_provide_sample(self, batch_size):
@@ -275,7 +275,7 @@ def main():
             state = next_state
 
             if memory.can_provide_sample(batch_size):
-                print("Start training at episode", episode)
+                # print("Start training at episode", episode)
                 experiences = memory.sample(batch_size)
                 states, actions, rewards, next_states = extract_tensors(experiences)
 
