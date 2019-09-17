@@ -239,8 +239,8 @@ class QValues():
 # Main Program
 def main():
     batch_size = 256
-    gamma = 0.999
-    eps_start = 1
+    gamma = 0.999       # Discount Rate (Lambda)
+    eps_start = 1       # Epsilon Function. Decay overtime.
     eps_end = 0.01
     eps_decay = 0.001
     target_update = 10
